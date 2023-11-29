@@ -1,0 +1,50 @@
+﻿@model Grafico
+@{
+    ViewData["Title"] = "Home Page";
+    var restricao = ViewData["restricao"];
+    int loop =  Convert.ToInt32(restricao);
+}
+
+<div class="text-center">
+    
+   @using (Html.BeginForm("Restricao","", FormMethod.Post)){
+
+    <label>Restrições totais:</label>
+    <input name="restricao" value="@restricao" />
+    <input type="submit" value="Enviar" />
+    }
+</div>
+
+<br><br>
+<div class="text-center">
+    
+   @using (Html.BeginForm("Equacoes", "", FormMethod.Post)){
+    <select asp-for="option">
+        <option value="Max">Max</option>
+        <option value="Mix">Min</option>
+    </select>
+    <label>Z=</label><input asp-for="X1" /> <label>x1</label><input asp-for="X2" /><label>x2</label>
+    <br>
+    <br>
+    <label>Sujeito a restrições</label>
+    <br>
+    <br>
+    
+    
+        for(int i =0;i<(loop);i++){
+            <br>
+    <br>
+    <input name="Restricoes[@i].X1res" /> <label>x1</label><input name="Restricoes[@i].X2res" /><label>x2</label>
+    <select name="Restricoes[@i].Sinal">
+        <option value=">="> &ge; </option>
+        <option value="<="> &le;  </option>
+        <option value="="> = </option>
+    </select>
+    <input name="Restricoes[@i].Resultado" />
+    
+        
+    }
+    <br><br>
+    <input type="submit" value="Enviar" />
+    }
+</div>
