@@ -8,7 +8,16 @@
    var pontosX =" ";
    var pontosY = " ";
 }
+<style>
+    h4,h5 {
+        color: #DC4C64;
+    }
 
+    .teste{
+        width: 200px;
+
+    }
+</style>
 <center><h4>@ViewData["Equacao"]</h4></center>
 @model Grafico
 
@@ -46,11 +55,11 @@
     <h5>⇒@x1 = @k.Resultado</h5>
     var resultado2 =  Convert.ToDouble(@k.Resultado)/Convert.ToDouble(@k.X1res);
     <h5>⇒x1 = @resultado2</h5>
-
-        <table>
+        <br>
+        <table class="table teste">
 
             <thead>
-                <tr>
+                <tr class="table-dark">
                     <td>X1</td>
                     <td>X2</td>
                 </tr>
@@ -74,7 +83,7 @@
                     </tr>
                 </tbody>
         </table>
-
+    <br>
     string mensagem = "falso";
 
     if(String.Compare(@k.Sinal,">=")==0){
@@ -126,10 +135,10 @@ o semiplano que contém a origem é a região do conjunto solução da inequaç�
     <h5>⇒x2 = @resultado</h5>
     <br>
 
-    <table>
+    <table class="table teste">
 
             <thead>
-                <tr>
+                <tr class="table-dark">
                     <td>X1</td>
                     <td>X2</td>
                 </tr>
@@ -153,7 +162,7 @@ o semiplano que contém a origem é a região do conjunto solução da inequaç�
                     </tr>
                 </tbody>
         </table>
-
+    <br>
     string mensagem = "falso";
     
     if(String.Compare(@k.Sinal,">=")==0){
@@ -210,10 +219,10 @@ o semiplano que contém a origem é a região do conjunto solução da inequaç�
     <h5>⇒x1 = @resultado2</h5> 
     <br>
 
-    <table>
+    <table class="table teste">
 
             <thead>
-                <tr>
+                <tr class="table-dark">
                     <td>X1</td>
                     <td>X2</td>
                 </tr>
@@ -237,7 +246,7 @@ o semiplano que contém a origem é a região do conjunto solução da inequaç�
                     </tr>
                 </tbody>
         </table>
-
+    <br>
     string mensagem = "falso";
     
     if(String.Compare(@k.Sinal,">=")==0){
@@ -300,9 +309,9 @@ o semiplano que contém a origem é a região do conjunto solução da inequaç�
     if(@ViewData["erro"]=="O problema não tem uma solução ótima!"){
     <h5>@ViewData["erro"]</h5>}
     else{
-        <h5>@ViewData["final"]</h5>
-        <h5>@ViewData["Otimox"]</h5>
-        <h5>@ViewData["Otimoy"]</h5>
+        <h5>Solução Ótima: @ViewData["final"]</h5>
+        <h5>Coordenada X no valor Ótimo: @ViewData["Otimox"]</h5>
+        <h5>Coordenada Y no valor Ótimo @ViewData["Otimoy"]</h5>
     }
     }
 

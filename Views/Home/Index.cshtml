@@ -5,13 +5,51 @@
     int loop =  Convert.ToInt32(restricao);
 }
 
+<style>
+    input.teste{
+        width: 200px;
+    }
+    #inline form{
+        display:inline-block;}
+    
+
+    label {
+        font-size: 22px;
+        color: #DC4C64;
+    }
+    input[type=text]{
+        margin-left: 10px;
+        margin-right: 10px;
+        color: #DC4C64;
+    }
+    input:focus {
+    outline: none !important;
+    border:1px solid #DC4C64;
+    box-shadow: 0 0 10px #DC4C64;
+  }
+
+  select{
+    background: #DC4C64;
+  color: #fff;
+  width: 80px;
+  }
+  select option {
+  margin: 40px;
+  background: #DC4C64;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+</style>
+<br>
+<center><h1 class="text-danger">Graph Method</h1></center>
+<br>
 <div class="text-center">
     
    @using (Html.BeginForm("Restricao","", FormMethod.Post)){
 
     <label>Restrições totais:</label>
-    <input name="restricao" value="@restricao" />
-    <input type="submit" value="Enviar" />
+    <input type="text" name="restricao" value="@restricao" />
+    <input type="submit" class="btn btn-danger teste" value="Enviar" />
     }
 </div>
 
@@ -23,28 +61,27 @@
         <option value="Max">Max</option>
         <option value="Mix">Min</option>
     </select>
-    <label>Z=</label><input asp-for="X1" /> <label>x1</label><input asp-for="X2" /><label>x2</label>
+    <label>Z=</label><input type="text" asp-for="X1" /> <label>x1</label><input type="text" asp-for="X2" /><label>x2</label>
     <br>
     <br>
     <label>Sujeito a restrições</label>
-    <br>
     <br>
     
     
         for(int i =0;i<(loop);i++){
             <br>
     <br>
-    <input name="Restricoes[@i].X1res" /> <label>x1</label><input name="Restricoes[@i].X2res" /><label>x2</label>
+    <input type="text" name="Restricoes[@i].X1res" /> <label>x1</label><input name="Restricoes[@i].X2res" /><label>x2</label>
     <select name="Restricoes[@i].Sinal">
         <option value=">="> &ge; </option>
         <option value="<="> &le;  </option>
         <option value="="> = </option>
     </select>
-    <input name="Restricoes[@i].Resultado" />
+    <input type="text" name="Restricoes[@i].Resultado" />
     
         
     }
     <br><br>
-    <input type="submit" value="Enviar" />
+    <input type="submit" class="btn btn-danger teste" value="Enviar" />
     }
 </div>
