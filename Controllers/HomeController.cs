@@ -82,8 +82,7 @@ public class HomeController : Controller
                 j.latex = item.X1res+"x + "+item.X2res+"y = " + item.Resultado;
                 Dados.Adiciona(j);
                 cont+=1;}
-        item.X1res = item.X1res.Replace('.',',');
-        item.X2res = item.X2res.Replace('.',','); 
+         
         if(String.Compare(item.Sinal,"<=")==0){
             
             solver.Add(Convert.ToDouble(item.X1res)*xx + Convert.ToDouble(item.X2res)*yy <= Convert.ToDouble(item.Resultado));
@@ -106,13 +105,11 @@ public class HomeController : Controller
         ViewData["Otimoy"]=0.0;
         ViewData["final"]=0.0;
         if(string.Compare(grafic.option,"Max")==0){ 
-        grafic.X1 = grafic.X1.Replace('.',',');
-        grafic.X2 = grafic.X2.Replace('.',','); 
+         
         solver.Maximize(Convert.ToDouble(grafic.X1)*xx + Convert.ToDouble(grafic.X2)*yy);
         } 
         else{
-            grafic.X1 = grafic.X1.Replace('.',',');
-            grafic.X2 = grafic.X2.Replace('.',','); 
+            
             solver.Minimize(Convert.ToDouble(grafic.X1)*xx + Convert.ToDouble(grafic.X2)*yy);
             Console.WriteLine("teste");
         }   
